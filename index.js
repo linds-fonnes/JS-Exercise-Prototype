@@ -37,9 +37,9 @@ Airplane.prototype.land = function () {
         + When an instance poops, its `stomach` should empty.
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
-*/
+*/  
 
-function Person() {
+function Person(name,age) {
 
 }
 
