@@ -80,9 +80,19 @@ console.log(personOne.stomach);
     - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
+//STEP 1 we want to create a constructor function that takes model & miles per gallon as parameters.
+//STEP 2 this.tank = 0, this.odometer = 0
+//STEP 3 create a method by using car.prototype that will add gallons to tank. method will need to be called using .fill(gallons)
 
-function Car() {
+function Car(model,milesPerGallon) {
+this.model = model;
+this.milesPerGallon = milesPerGallon;
+this.tank = 0;
+this.odometer= 0;
+}
 
+Car.prototype.fill = function(gallons){
+  this.tank = gallons + this.tank;
 }
 
 /*
