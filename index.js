@@ -83,6 +83,8 @@ console.log(personOne.stomach);
 //STEP 1 we want to create a constructor function that takes model & miles per gallon as parameters.
 //STEP 2 this.tank = 0, this.odometer = 0
 //STEP 3 create a method by using car.prototype that will add gallons to tank. method will need to be called using .fill(gallons)
+//STRETCH create drive method using prototype. Car.drive(distance) will increase odometer, decrease the tank taking MPG into account.
+// When tank === 0 return the string "I ran out of fuel at x miles!" x being `odometer`
 
 function Car(model,milesPerGallon) {
 this.model = model;
@@ -93,6 +95,13 @@ this.odometer= 0;
 
 Car.prototype.fill = function(gallons){
   this.tank = gallons + this.tank;
+}
+Car.prototype.drive = function(distance){
+  this.odometer = distance + this.odometer;
+  this.tank = (distance/this.milesPerGallon) - this.tank;
+  if (this.tank === 0){
+    return `I ran out of fuel at ${this.odometer}`;
+  }
 }
 
 /*
@@ -118,10 +127,10 @@ Baby.prototype.play = function(favoriteToy){
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. The first principle is the Window/Global Object binding of 'this'. When you are in global scope, the value of 'this' will be the window/console object
+  2. The second pricinple is Implicit Binding. Whenever a function is called by a preceding dot, the object left of the dot gets 'this'. It is implied, not directly assigned.
+  3. The third principle is New Binding. Whenever we use a constructor function, 'this' refrse to the specific instance of the object that is created and returned b y the constructor function
+  4. The fourth principle is Explicit Binding. Whenever we use the call or apply method, 'this' is explicity defined when you use either of those methods.
 */
 
 
