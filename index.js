@@ -39,10 +39,34 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
+//Step 1 We waant to create a Constructor Function - It takes name & age as arguments and should also have an empty stomach array.
 
+function Person(name, age) {
+this.name = name;
+this.age = age;
+this.stomach = [];
 }
 
+Person.prototype.eat = function(someFood){
+if (this.stomach.length < 10){
+  this.stomach.push(someFood);
+  }
+}
+
+Person.prototype.poop = function(){
+  this.stomach = [];
+}
+
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
+
+const personOne = new Person('Lindsey',24);
+console.log(personOne.toString());
+personOne.eat('PIZZA');
+console.log(personOne.stomach);
+personOne.poop();
+console.log(personOne.stomach);
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
