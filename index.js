@@ -102,10 +102,18 @@ Car.prototype.fill = function(gallons){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+//STEP 1 Create baby constructor function that's parent is the Person function we created
+//STEP 2 Use name, age, and favoriteToy for parameteres
+//STEP 3 The Person.protoype should be passed in with the parentchild way shown in CodePen example, but also add the method of .play()
+//STEP 4 Play prototype method will return the string "Playing with x", x being the favorite toy.
+function Baby(name,age,favoriteToy) {
+Person.call(this,name,age);
+this.favoriteToy = favoriteToy;
 }
-
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function(favoriteToy){
+  return `Playing with ${this.favoriteToy}`
+}
 /* 
   TASK 4
 
